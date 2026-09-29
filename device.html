@@ -94,7 +94,7 @@
     try {
       const d = frame.contentDocument; if (!d || !d.documentElement) return;
       const S = safe(), r = d.documentElement.style;
-      r.setProperty('--sat', (showSb ? S.sat : 0) + 'px'); r.setProperty('--sab', (showSb ? S.sab : 0) + 'px');
+      r.setProperty('--sat', (showSb ? S.sat : 0) + 'px'); r.setProperty('--sabraw', (showSb ? S.sab : 0) + 'px'); r.removeProperty('--sab'); // --sab 는 게임이 --sabraw × 비율로 계산(아래 여백 절반만 사용)
       frame.contentWindow.dispatchEvent(new Event('resize'));
     } catch (e) { /* 다른 출처면 못 넣는다 */ }
   }
